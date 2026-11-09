@@ -1,0 +1,23 @@
+.my-cart{
+    padding: 40px 8%;
+    min-height: 80vh;
+}
+
+.my-cart h1 {
+    text-align: center;
+    color: aquamarine;
+    margin: 30px 0;
+}
+
+.menu_btn {
+    background: #56382b;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.menu_btn:hover {
+    background: #a87955;
+}

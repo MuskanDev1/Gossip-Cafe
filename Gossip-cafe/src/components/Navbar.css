@@ -1,0 +1,101 @@
+.navbar {
+    background-color: #fff1df;
+    padding: 12px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 115px;
+    box-shadow: 0 3px 12px rgba(59, 29, 18, 0.12);
+    border-bottom: 2px solid #ead2bd;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.brand-logo {
+   width: 90px;
+   height: 90px;
+   object-fit: contain;
+   border-radius: 12px;
+}
+
+.brand-name h2 {
+    color: #492518;
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.brand-name p {
+    color: #c94f70;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.brand-name span {
+    color: #806b5d;
+    font-size: 12px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+
+.nav-links button {
+    background: transparent;
+    color: #492518;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nav-links button:hover {
+    color: #c94f70;
+}
+
+.nav-links .cart-btn {
+    background-color: #c94f70;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.nav-links .cart-btn:hover {
+    background-color: #a93658;
+    color: white;
+}
+
+.navbar {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        padding: 12px 4%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .brand-logo {
+        width:65px;
+        height: 65px;
+    }
+    .brand-name h2 {
+        font-size: 17px;
+    }
+    .brand-name span {
+        display: none;
+    }
+    .nav-links {
+        gap: 18px;
+    }
+}
