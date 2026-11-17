@@ -6,7 +6,8 @@ function MyCart({
     increaseQuantity,
     decreaseQuantity,
     removeItem,
-    backToMenu
+    backToMenu,
+    onProceedToBill
 }) {
     return (
         <div className="my-cart">
@@ -19,6 +20,7 @@ function MyCart({
                 increaseQuantity = {increaseQuantity}
                 decreaseQuantity = {decreaseQuantity}
                 removeItem = {removeItem}
+                onProceedToBill={onProceedToBill}
             />
 
         </div>

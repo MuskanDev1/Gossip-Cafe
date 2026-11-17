@@ -4,7 +4,8 @@ function Cart({
   cartItems,
   increaseQuantity,
   decreaseQuantity,
-  removeItem
+  removeItem,
+  onProceedToBill
 }) {
 
   const total = cartItems.reduce(
@@ -60,7 +61,10 @@ function Cart({
 
         <h3>Total Amount: ₹{total}</h3>
 
-        <button disabled={cartItems.length === 0}>
+        <button
+          disabled={cartItems.length === 0}
+          onClick={onProceedToBill}
+        >
           Proceed to Bill
         </button>
 

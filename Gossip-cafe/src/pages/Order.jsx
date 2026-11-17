@@ -5,14 +5,23 @@ import FoodCart from "../components/FoodCart";
 import Cart from "../components/Cart";
 import MyCart from "./MyCart";
 import "./Order.css";
-
+import Payment from "./Payment";
 function Order() {
 
     const [cartItems, setCartItems] = useState([]);
     const [showMyCart, setShowMyCart] = useState(false);
+    const [showPayment, setShowPayment] = useState(false);
 
     function backToMenu() {
         setShowMyCart(false);
+    }
+
+    function proceedToPayment() {
+        setShowPayment(true);
+    }
+
+    function backToCart() {
+        setShowPayment(false);
     }
 
     const foodItems = [
@@ -107,34 +116,42 @@ function Order() {
 
     return (
         <>
-            <Navbar openCart = {()=>setShowMyCart(true) }
-                backToMenu = {backToMenu}
-             />
+            <Navbar openCart={() => setShowMyCart(true)}
+                backToMenu={backToMenu}
+            />
+            
+            {showPayment ? (
+                <Payment
+                    cartItems={cartItems}
+                    onBackToCart={backToCart}
+                />
+            ) : showMyCart ? (
+                <MyCart
+                    cartItems={cartItems}
+                    increaseQuantity={increaseQuantity}
+                    decreaseQuantity={decreaseQuantity}
+                    removeItem={removeItem}
+                    backToMenu={backToMenu}
+                    onProceedToBill={proceedToPayment} />
+            ) : (
+                <div className="order">
+                    <h1>Welcome to Gossip Cafe </h1>
+                    <p>Good Food, Great Coffee and Better Conversations!</p>
+                    <h2 id="menu"> Our Menu </h2>
 
-             {showMyCart ? (<MyCart cartItems={cartItems}
-             increaseQuantity={increaseQuantity}
-             decreaseQuantity={decreaseQuantity}
-             removeItem={removeItem}
-             backToMenu = {backToMenu}/>
-            ):(
-              <div className="order">
-                <h1>Welcome to Gossip Cafe </h1>
-                <p>Good Food, Great Coffee and Better Conversations!</p>
-                <h2 id="menu"> Our Menu </h2>
-
-                <div className="food-container">
-                    {
-                        foodItems.map((item) => (
-                            <FoodCart key={item.id}
-                                item={item}
-                                addToCart={addToCart} />
-                        ))
-                    }
+                    <div className="food-container">
+                        {
+                            foodItems.map((item) => (
+                                <FoodCart key={item.id}
+                                    item={item}
+                                    addToCart={addToCart} />
+                            ))
+                        }
+                    </div>
                 </div>
-            </div>
             )}
 
-           
+
         </>
     )
 }
